@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - 'feature/hamzahaline'
+      - 'feature/test-build'
 
 jobs:
   Explore-GitHub-Actions:
