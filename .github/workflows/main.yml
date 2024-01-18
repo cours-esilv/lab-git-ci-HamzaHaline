@@ -25,3 +25,9 @@ jobs:
       # Compile notre application
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
+      # Upload a Build Artifact
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: my-app-1.0
+          path: target/*
