@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: Java CI
 
 on:
@@ -14,6 +15,16 @@ permissions:
   contents: read
   checks: write
   pull-requests: write
+=======
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: 
+  push:
+    branches:
+      - main
+      - 'feature/hamzahaline'
+      - 'feature/test-build'
+>>>>>>> cfd6920ddc6bf6b09e6045fa0dce3f5df9e69257
 
 jobs:
   build:
@@ -32,6 +43,7 @@ jobs:
       # Compiles the application
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
+<<<<<<< HEAD
       
       # Publishes the test results
       - name: Publish Unit Test Results
@@ -41,6 +53,10 @@ jobs:
           files: target/**/*.xml
       
       # Publishes the build artifact
+=======
+
+      # Publie les fichiers présents dans le dossier target dans un build artifact
+>>>>>>> cfd6920ddc6bf6b09e6045fa0dce3f5df9e69257
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
@@ -53,8 +69,21 @@ jobs:
         id: buildx
         with:
           install: true
+<<<<<<< HEAD
 
       # Build the Docker image
+=======
+      # Publie les résultats de test
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          files: target/**/*.xml
+          github_token: ${{ secrets.INPUT_GITHUB_TOKEN }}
+
+          
+      # Build l'image Docker
+>>>>>>> cfd6920ddc6bf6b09e6045fa0dce3f5df9e69257
       - name: Docker build
         run: |
           docker build -t my-app:1.0 .
